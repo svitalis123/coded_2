@@ -1,11 +1,13 @@
+---
+import "../styles/global.css";
+---
 <!doctype html>
 <html lang="en">
 	<head>
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<link rel="icon" type="image/svg+xml" href="/favicon.ico" />
 		<meta name="generator" content={Astro.generator} />
-		<title>Astro Basics</title>
 	</head>
 	<body>
 		<slot />
@@ -13,10 +15,10 @@
 </html>
 
 <style>
-	html,
-	body {
+	html {
 		margin: 0;
 		width: 100%;
+		overflow-y: scroll;
 		height: 100%;
 	}
 </style>
