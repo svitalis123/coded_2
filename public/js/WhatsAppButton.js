@@ -1,4 +1,5 @@
 // public/js/WhatsAppButton.js
+
 class WhatsAppButton {
   constructor(options = {}) {
     this.options = Object.assign({
@@ -9,7 +10,7 @@ class WhatsAppButton {
       position: "right", // 'right' or 'left'
       showOnMobile: true,
       showOnDesktop: true,
-      autoOpenTimeout: 0, // Set to 0 to disable auto open
+      autoOpenTimeout: 8000, // Set to 8000 for 8 seconds
       headerColor: "#FF4800", // Primary color from your Bootstrap theme
       buttonColor: "#FF4800"
     }, options);
@@ -18,6 +19,7 @@ class WhatsAppButton {
     this.isLoading = false;
     this.showContent = false;
     this.currentTime = new Date();
+    this.hasAutoOpened = false; // Track if auto-open has occurred
 
     this.init();
   }
@@ -27,10 +29,13 @@ class WhatsAppButton {
     this.setupEventListeners();
     this.updateTime();
 
-    // Auto open chat after timeout if set
+    // Auto open chat after the specified delay
     if (this.options.autoOpenTimeout > 0) {
       setTimeout(() => {
-        this.toggleChat();
+        if (!this.isOpen && !this.hasAutoOpened) {
+          this.toggleChat();
+          this.hasAutoOpened = true; // Mark that we've auto-opened
+        }
       }, this.options.autoOpenTimeout);
     }
   }
@@ -72,7 +77,7 @@ class WhatsAppButton {
     // Create chat panel (hidden by default)
     this.chatPanel = document.createElement('div');
     this.chatPanel.className = 'whatsapp-chat-panel card shadow';
-    this.chatPanel.style.display = 'none';
+    this.chatPanel.style.display = 'none'; // Initially hidden
     this.chatPanel.style.position = 'absolute';
     this.chatPanel.style.bottom = '70px';
     this.chatPanel.style[this.options.position] = '0';
@@ -82,7 +87,7 @@ class WhatsAppButton {
     this.chatPanel.style.maxHeight = 'calc(100vh - 120px)';
     this.chatPanel.style.borderRadius = '10px';
     this.chatPanel.style.overflow = 'hidden';
-    this.chatPanel.style.display = 'flex';
+    this.chatPanel.style.display = 'none'; // Ensure it's initially hidden
     this.chatPanel.style.flexDirection = 'column';
 
     // Create header
@@ -118,6 +123,7 @@ class WhatsAppButton {
     this.closeButton.className = 'close text-white ml-auto';
     this.closeButton.innerHTML = '&times;';
     this.closeButton.setAttribute('aria-label', 'Close');
+    this.closeButton.style.marginLeft = 'auto'; // Ensure it's on the right
 
     // Assemble header
     this.chatHeader.appendChild(this.avatar);
@@ -216,26 +222,29 @@ class WhatsAppButton {
 
   setupEventListeners() {
     // Toggle chat when button is clicked
-    this.button.addEventListener('click', () => {
+    this.button.addEventListener('click', (e) => {
+      e.stopPropagation(); // Prevent event from bubbling up
       this.toggleChat();
     });
 
     // Close chat when close button is clicked
-    this.closeButton.addEventListener('click', () => {
-      this.toggleChat();
+    this.closeButton.addEventListener('click', (e) => {
+      e.stopPropagation(); // Prevent event from bubbling up
+      this.closeChat();
     });
 
     // Start WhatsApp chat when button is clicked
-    this.startChatButton.addEventListener('click', () => {
+    this.startChatButton.addEventListener('click', (e) => {
+      e.stopPropagation(); // Prevent event from bubbling up
       this.startWhatsAppChat();
     });
 
-    // Close chat when clicking outside
-    document.addEventListener('mousedown', (event) => {
+    // Close chat when clicking outside - attach to document
+    document.addEventListener('click', (event) => {
       if (this.isOpen && 
           !this.chatPanel.contains(event.target) && 
           !this.button.contains(event.target)) {
-        this.toggleChat();
+        this.closeChat();
       }
     });
 
@@ -246,9 +255,17 @@ class WhatsAppButton {
   }
 
   toggleChat() {
-    this.isOpen = !this.isOpen;
-    
     if (this.isOpen) {
+      this.closeChat();
+    } else {
+      this.openChat();
+    }
+  }
+
+  openChat() {
+    if (!this.isOpen) {
+      this.isOpen = true;
+      
       // Show chat panel
       this.chatPanel.style.display = 'flex';
       this.notificationDot.style.display = 'none';
@@ -260,7 +277,7 @@ class WhatsAppButton {
       this.messageBubble.style.display = 'none';
       this.startChatButton.style.display = 'none';
       
-      // Simulate loading with timeout
+      // Simulate loading with timeout - reduced to 1 second
       setTimeout(() => {
         this.isLoading = false;
         this.loadingIndicator.style.display = 'none';
@@ -268,9 +285,13 @@ class WhatsAppButton {
         this.messageBubble.style.display = 'block';
         this.startChatButton.style.display = 'block';
         this.showContent = true;
-      }, 1500);
-    } else {
-      // Hide chat panel
+      }, 1000);
+    }
+  }
+
+  closeChat() {
+    if (this.isOpen) {
+      this.isOpen = false;
       this.chatPanel.style.display = 'none';
       this.showContent = false;
     }
@@ -289,6 +310,9 @@ class WhatsAppButton {
       
       // Open WhatsApp in new tab
       window.open(whatsappUrl, '_blank');
+      
+      // Close the chat after opening WhatsApp
+      this.closeChat();
     } catch (error) {
       console.error('Error opening WhatsApp:', error);
       alert('Could not open WhatsApp. Please try again or contact us directly.');
@@ -314,6 +338,7 @@ document.addEventListener('DOMContentLoaded', () => {
     phoneNumber: "+254758464586",
     defaultMessage: "Hello, I'd like to inquire about your logistics services.",
     headerColor: "#FF4800",
-    buttonColor: "#25D366" // WhatsApp green
+    buttonColor: "#25D366", // WhatsApp green
+    autoOpenTimeout: 8000 // Auto open after 8 seconds
   });
 });

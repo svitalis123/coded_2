@@ -1,4 +1,4 @@
-// Save this to public/js/whatsapp-config.js
+// public/js/whatsapp-config.js
 
 // This script configures the WhatsApp button based on the current page
 document.addEventListener('DOMContentLoaded', () => {
@@ -7,7 +7,8 @@ document.addEventListener('DOMContentLoaded', () => {
     phoneNumber: "+254758464586", // Default phone number
     defaultMessage: "Hello, I'd like to inquire about your logistics services.",
     chatTitle: "Quickship PVT Limited",
-    chatSubtitle: "Customs Clearing & Forwarding"
+    chatSubtitle: "Customs Clearing & Forwarding",
+    autoOpenTimeout: 8000 // Auto open after 8 seconds
   };
   
   // Configure based on current page
@@ -41,6 +42,6 @@ document.addEventListener('DOMContentLoaded', () => {
     ...config,
     headerColor: "#FF4800",
     buttonColor: "#25D366", // WhatsApp green
-    autoOpenTimeout: 1000 // Auto open after 1 second (redundant but keeping for clarity)
+    autoOpenTimeout: 8000 // Auto open after 8 seconds
   });
 });
