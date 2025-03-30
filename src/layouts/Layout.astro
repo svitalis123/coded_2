@@ -2,6 +2,7 @@
 import Header from "@/components/sharedComponents/Header.astro";
 import "../styles/global.css";
 import Footer from "@/components/sharedComponents/Footer.astro";
+import WhatsAppButton from "@/components/homepage/WhatsAppButton";
 const { title, description, ogimg } = Astro.props;
 ---
 
@@ -60,6 +61,7 @@ const { title, description, ogimg } = Astro.props;
 
     <!-- Libraries Stylesheet -->
     <link href="/lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet" />
+		<link href="/css/whatsapp-button.css" rel="stylesheet">
 
     <!-- Customized Bootstrap Stylesheet -->
     <link href="/css/style.css" rel="stylesheet" />
@@ -180,12 +182,16 @@ const { title, description, ogimg } = Astro.props;
   <body>
     <Header />
     <slot />
+    <WhatsAppButton client:load />
     <Footer />
 
     <!-- Back to Top -->
     <a href="#" class="btn btn-lg btn-primary back-to-top"
       ><i class="fa fa-angle-double-up"></i></a
     >
+
+		<script is:inline src="/js/WhatsAppButton.js"></script>
+		<script is:inline src="/js/whatsapp-config.js"></script>
 
     <!-- JavaScript Libraries -->
     <script is:inline src="https://code.jquery.com/jquery-3.4.1.min.js"

@@ -57,58 +57,163 @@
   </div>
   <!-- Services End -->
 
-  <!--  Quote Request Start -->
-  <div class="container-fluid bg-secondary my-5 mx-1">
-      <div class="container">
-          <div class="row align-items-center">
-              <div class="col-lg-7 py-5 py-lg-0">
-                  <h6 class="text-primary text-uppercase font-weight-bold">Get A Quote</h6>
-                  <h1 class="mb-4">Request A Free Quote</h1>
-                  <p class="mb-4">Let us help you streamline your logistics operations with our comprehensive solutions. Fill out the form to get a customized quote tailored to your specific needs.</p>
-                  <div class="row">
-                      <div class="col-sm-4">
-                          <h1 class="text-primary mb-2" data-toggle="counter-up">25</h1>
-                          <h6 class="font-weight-bold mb-4">Expert Staff</h6>
-                      </div>
-                      <div class="col-sm-4">
-                          <h1 class="text-primary mb-2" data-toggle="counter-up">350</h1>
-                          <h6 class="font-weight-bold mb-4">Happy Clients</h6>
-                      </div>
-                      <div class="col-sm-4">
-                          <h1 class="text-primary mb-2" data-toggle="counter-up">1500</h1>
-                          <h6 class="font-weight-bold mb-4">Complete Projects</h6>
-                      </div>
-                  </div>
-              </div>
-              <div class="col-lg-5">
-                  <div class="bg-primary py-5 px-4 px-sm-5">
-                      <form class="py-5">
-                          <div class="form-group">
-                              <input type="text" class="form-control border-0 p-4" placeholder="Your Name" required="required" />
-                          </div>
-                          <div class="form-group">
-                              <input type="email" class="form-control border-0 p-4" placeholder="Your Email" required="required" />
-                          </div>
-                          <div class="form-group">
-                              <select class="custom-select border-0 px-4" style="height: 47px;">
-                                  <option selected>Select A Service</option>
-                                  <option value="1">Customs Clearing & Forwarding</option>
-                                  <option value="2">Freight & Logistics Solutions</option>
-                                  <option value="3">Inland Transportation</option>
-                                  <option value="4">Specialized Cargo Handling</option>
-                                  <option value="5">Trade Compliance & Consultancy</option>
-                              </select>
-                          </div>
-                          <div>
-                              <button class="btn btn-dark btn-block border-0 py-3" type="submit">Get A Quote</button>
-                          </div>
-                      </form>
-                  </div>
-              </div>
-          </div>
+  <!-- Statistics Start -->
+  <div class="container-fluid statistics-section py-5" style="background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('img/header.jpg'); background-size: cover; background-position: center;">
+    <div class="container">
+      <div class="row text-center">
+        <div class="col-md-4 mb-4 mb-md-0">
+          <h2 class="text-primary mb-2" data-toggle="counter-up">25</h2>
+          <h6 class="font-weight-bold mb-4 text-white">Expert Staff</h6>
+        </div>
+        <div class="col-md-4 mb-4 mb-md-0">
+          <h2 class="text-primary mb-2" data-toggle="counter-up">350</h2>
+          <h6 class="font-weight-bold mb-4 text-white">Happy Clients</h6>
+        </div>
+        <div class="col-md-4">
+          <h2 class="text-primary mb-2" data-toggle="counter-up">1500</h2>
+          <h6 class="font-weight-bold mb-4 text-white">DELIVERED PACKAGES</h6>
+        </div>
       </div>
+    </div>
   </div>
-  <!-- Quote Request Start -->
+  <!-- Statistics End -->
+
+ <!-- Quote/Track Start -->
+  <div class="container-fluid bg-secondary my-5">
+    <div class="container">
+      <div class="row align-items-center">
+        <div class="col-lg-5 p-0 d-lg-flex justify-content-lg-end">
+          <img class="img-fluid d-none d-lg-block w-auto" style="max-height: 516px;" src="img/form.webp" alt="Logistics Truck">
+        </div>
+        <div class="col-lg-7 py-4 py-lg-0 px-0">
+          <div class="bg-white">
+            <!-- Tabs Nav -->
+            <div class="nav nav-tabs border-0 flex-nowrap flex-lg-wrap">
+              <a class="nav-item nav-link active px-4 py-3 bg-dark text-white" id="quote-tab" data-toggle="tab" href="#quote">
+                <i class="fa fa-file-alt mr-2"></i> Request A Quote
+              </a>
+              <a class="nav-item nav-link px-4 py-3 bg-primary text-white" id="track-tab" data-toggle="tab" href="#track">
+                <i class="fa fa-search mr-2"></i> Track & Trace
+              </a>
+            </div>
+            
+            <!-- Tabs Content -->
+            <div class="tab-content p-4">
+              <!-- Quote Form Tab -->
+              <div class="tab-pane fade show active" id="quote">
+                <h6 class="text-primary text-uppercase font-weight-bold mt-3 mb-4">Personal Data</h6>
+                <div class="form-row">
+                  <div class="col-md-4 mb-3">
+                    <input type="text" class="form-control border p-3" placeholder="Your Name" required>
+                  </div>
+                  <div class="col-md-4 mb-3">
+                    <input type="email" class="form-control border p-3" placeholder="Your Email" required>
+                  </div>
+                  <div class="col-md-4 mb-3">
+                    <input type="tel" class="form-control border p-3" placeholder="Your Phone" required>
+                  </div>
+                </div>
+                
+                <h6 class="text-primary text-uppercase font-weight-bold mt-4 mb-3">Shipment Data</h6>
+                <div class="form-row">
+                  <div class="col-md-4 mb-3">
+                    <select class="custom-select border px-4" style="height: 47px;">
+                      <option selected>Freight Type</option>
+                      <option value="1">Air Freight</option>
+                      <option value="2">Sea Freight</option>
+                      <option value="3">Road Transport</option>
+                      <option value="4">Specialized Cargo</option>
+                    </select>
+                  </div>
+                  <div class="col-md-4 mb-3">
+                    <input type="text" class="form-control border p-3" placeholder="City of Departure">
+                  </div>
+                  <div class="col-md-4 mb-3">
+                    <input type="text" class="form-control border p-3" placeholder="Delivery City">
+                  </div>
+                </div>
+                
+                <div class="form-row">
+                  <div class="col-md-4 mb-3">
+                    <select class="custom-select border px-4" style="height: 47px;">
+                      <option selected>Incoterms</option>
+                      <option value="1">FOB</option>
+                      <option value="2">CIF</option>
+                      <option value="3">EXW</option>
+                      <option value="4">DAP</option>
+                    </select>
+                  </div>
+                  <div class="col-md-4 mb-3">
+                    <input type="text" class="form-control border p-3" placeholder="Weight">
+                  </div>
+                  <div class="col-md-4 mb-3">
+                    <input type="text" class="form-control border p-3" placeholder="Height">
+                  </div>
+                </div>
+                
+                <div class="form-row mb-4">
+                  <div class="col-md-3 mb-2">
+                    <div class="custom-control custom-checkbox">
+                      <input type="checkbox" class="custom-control-input" id="fragile">
+                      <label class="custom-control-label" for="fragile">Fragile</label>
+                    </div>
+                  </div>
+                  <div class="col-md-3 mb-2">
+                    <div class="custom-control custom-checkbox">
+                      <input type="checkbox" class="custom-control-input" id="express">
+                      <label class="custom-control-label" for="express">Express Delivery</label>
+                    </div>
+                  </div>
+                  <div class="col-md-3 mb-2">
+                    <div class="custom-control custom-checkbox">
+                      <input type="checkbox" class="custom-control-input" id="insurance">
+                      <label class="custom-control-label" for="insurance">Insurance</label>
+                    </div>
+                  </div>
+                  <div class="col-md-3 mb-2">
+                    <div class="custom-control custom-checkbox">
+                      <input type="checkbox" class="custom-control-input" id="packaging">
+                      <label class="custom-control-label" for="packaging">Packaging</label>
+                    </div>
+                  </div>
+                </div>
+                
+                <div class="text-center">
+                  <button class="btn btn-primary px-5 py-3 rounded-pill">
+                    Request A Quote <i class="fa fa-paper-plane ml-2"></i>
+                  </button>
+                </div>
+              </div>
+              
+              <!-- Track Form Tab -->
+              <!-- Track Form Tab -->
+              <div class="tab-pane fade" id="track">
+                <h6 class="text-primary text-uppercase font-weight-bold mt-3 mb-4">Track Your Shipment</h6>
+                <div class="form-group">
+                  <input type="text" class="form-control border p-3" placeholder="Your name" required>
+                </div>
+                <div class="form-group">
+                  <input type="tel" class="form-control border p-3" placeholder="Phone number" required>
+                </div>
+                <div class="form-group">
+                  <input type="email" class="form-control border p-3" placeholder="Your email" required>
+                </div>
+                <div class="form-group">
+                  <textarea class="form-control border p-3" rows="5" placeholder="Message"></textarea>
+                </div>
+                <div class="text-center mt-4">
+                  <button class="btn btn-primary px-5 py-3 rounded-pill">
+                    Submit Form <i class="fa fa-paper-plane ml-2"></i>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- Quote/Track End -->
 
   <!-- Additional Services Section -->
   <div class="container-fluid pt-5 px-1">

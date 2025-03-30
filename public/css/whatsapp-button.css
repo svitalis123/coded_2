@@ -1,0 +1,106 @@
+/* WhatsApp Button Styles */
+.whatsapp-button-container {
+  transition: all 0.3s ease;
+}
+
+.whatsapp-button {
+  transition: all 0.3s ease;
+  position: relative;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.whatsapp-button:hover {
+  transform: scale(1.1);
+}
+
+.whatsapp-chat-panel {
+  transition: all 0.3s ease;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+  z-index: 9998;
+}
+
+@keyframes bounce {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+.whatsapp-button-container:not(.chat-open) .whatsapp-button {
+  animation: bounce 2s infinite;
+}
+
+.notification-dot {
+  animation: pulse 1.5s infinite;
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(0.95);
+    box-shadow: 0 0 0 0 rgba(220, 53, 69, 0.7);
+  }
+  
+  70% {
+    transform: scale(1);
+    box-shadow: 0 0 0 10px rgba(220, 53, 69, 0);
+  }
+  
+  100% {
+    transform: scale(0.95);
+    box-shadow: 0 0 0 0 rgba(220, 53, 69, 0);
+  }
+}
+
+/* Responsive adjustments */
+@media (max-width: 576px) {
+  .whatsapp-button-container {
+    bottom: 20px;
+    right: 20px;
+  }
+  
+  .whatsapp-button {
+    width: 50px !important;
+    height: 50px !important;
+  }
+  
+  .whatsapp-chat-panel {
+    width: calc(100vw - 40px) !important;
+    height: 400px !important;
+  }
+}
+
+/* Typing animation */
+.typing {
+  display: inline-block;
+  height: 12px;
+}
+
+.typing-dot {
+  display: inline-block;
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background-color: rgba(0, 0, 0, 0.5);
+  margin-right: 3px;
+  animation: typingAnimation 1.5s infinite ease-in-out;
+}
+
+.typing-dot:nth-child(2) {
+  animation-delay: 0.2s;
+}
+
+.typing-dot:nth-child(3) {
+  animation-delay: 0.4s;
+  margin-right: 0;
+}
+
+@keyframes typingAnimation {
+  0%, 60%, 100% {
+    transform: translateY(0);
+  }
+  30% {
+    transform: translateY(-5px);
+  }
+}

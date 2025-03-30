@@ -92,3 +92,17 @@ $(document).ready(function () {
     wrap: true, // Continuously cycle
   });
 });
+
+
+// Tab functionality (should already be working with Bootstrap, but just in case)
+$(document).ready(function() {
+    $('#quote-tab').on('click', function(e) {
+      e.preventDefault();
+      $(this).tab('show');
+    });
+    
+    $('#track-tab').on('click', function(e) {
+      e.preventDefault();
+      $(this).tab('show');
+    });
+  });
