@@ -8,7 +8,7 @@ const { title, description, ogimg } = Astro.props;
 <!doctype html>
 <html lang="en">
   <head>
-    <link rel="shortcut icon" href="/img/logo.webp" type="image/x-icon" />
+    <link rel="shortcut icon" href="/img/lighlogo.webp" type="image/x-icon" />
     <meta charset="UTF-8" />
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -41,7 +41,7 @@ const { title, description, ogimg } = Astro.props;
       property="article:modified_time"
       content="2024-09-17T09:27:25+00:00"
     />
-    <meta property="og:image" content="/img/logo.webp" />
+    <meta property="og:image" content="/img/lighlogo.webp" />
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:site" content="@QuickshipAfrica" />
 
@@ -59,8 +59,11 @@ const { title, description, ogimg } = Astro.props;
     />
 
     <!-- Libraries Stylesheet -->
-    <link href="/lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet" />
-		<link href="/css/whatsapp-button.css" rel="stylesheet">
+    <link
+      href="/lib/owlcarousel/assets/owl.carousel.min.css"
+      rel="stylesheet"
+    />
+    <link href="/css/whatsapp-button.css" rel="stylesheet" />
 
     <!-- Customized Bootstrap Stylesheet -->
     <link href="/css/style.css" rel="stylesheet" />
@@ -143,8 +146,8 @@ const { title, description, ogimg } = Astro.props;
               "@type": "ImageObject",
               "inLanguage": "en-US",
               "@id": "https://www.quickshipafrica.com/#/schema/logo/image/",
-              "url": "/img/logo.webp",
-              "contentUrl": "/img/logo.webp",
+              "url": "/img/lighlogo.webp",
+              "contentUrl": "/img/lighlogo.webp",
               "width": 280,
               "height": 150,
               "caption": "Quickship PVT Limited"
@@ -188,8 +191,8 @@ const { title, description, ogimg } = Astro.props;
       ><i class="fa fa-angle-double-up"></i></a
     >
 
-		<script is:inline src="/js/WhatsAppButton.js"></script>
-		<script is:inline src="/js/whatsapp-config.js"></script>
+    <script is:inline src="/js/WhatsAppButton.js"></script>
+    <script is:inline src="/js/whatsapp-config.js"></script>
 
     <!-- JavaScript Libraries -->
     <script is:inline src="https://code.jquery.com/jquery-3.4.1.min.js"
@@ -198,16 +201,16 @@ const { title, description, ogimg } = Astro.props;
       is:inline
       src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js"
     ></script>
-    <script is:inline src="lib/easing/easing.min.js"></script>
-    <script is:inline src="lib/waypoints/waypoints.min.js"></script>
-    <script is:inline src="lib/counterup/counterup.min.js"></script>
-    <script is:inline src="lib/owlcarousel/owl.carousel.min.js"></script>
+    <script is:inline src="/lib/easing/easing.min.js"></script>
+    <script is:inline src="/lib/waypoints/waypoints.min.js"></script>
+    <script is:inline src="/lib/counterup/counterup.min.js"></script>
+    <script is:inline src="/lib/owlcarousel/owl.carousel.min.js"></script>
 
     <!-- Contact Javascript File -->
-    <script is:inline src="mail/jqBootstrapValidation.min.js"></script>
-    <script is:inline src="mail/contact.js"></script>
+    <script is:inline src="/mail/jqBootstrapValidation.min.js"></script>
+    <script is:inline src="/mail/contact.js"></script>
 
     <!-- Template Javascript -->
-    <script is:inline src="js/main.js"></script>
+    <script is:inline src="/js/main.js"></script>
   </body>
 </html>

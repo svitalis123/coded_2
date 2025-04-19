@@ -4,7 +4,7 @@
 document.addEventListener('DOMContentLoaded', () => {
   const path = window.location.pathname;
   let config = {
-    phoneNumber: "+254758464586", // Default phone number
+    phoneNumber: "+255753187700", // Default phone number
     defaultMessage: "Hello, I'd like to inquire about your logistics services.",
     chatTitle: "Quickship PVT Limited",
     chatSubtitle: "Customs Clearing & Forwarding",
